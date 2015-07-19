@@ -40,4 +40,4 @@ Run the MySQL container:
   -e "MYSQL_USER=auser" \
   -e "MYSQL_PASS=apass" \
   -e "MYSQL_DB=myappdb" \
-  yourid/mysql:latest
+  yourid/mysql:latest`
