@@ -38,7 +38,10 @@ CreateMySQLUser()
     mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
     mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
     mysql -uroot -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DB} CHARACTER SET utf8 COLLATE utf8_general_ci;"
-    mysql -uroot -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DB_TEST} CHARACTER SET utf8 COLLATE utf8_general_ci;"
+    
+    if [ -n "$MYSQL_DB_TEST"]; then
+      mysql -uroot -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DB_TEST} CHARACTER SET utf8 COLLATE utf8_general_ci;"
+    fi
 
 
     echo "=> Done!"
